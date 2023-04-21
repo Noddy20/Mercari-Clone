@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">mercari</string>
+    <string name="sold">SOLD</string>
+
+    <string name="title_no_data_found">No Data Found!</string>
+    <string name="message_no_data_found">No Data Found, Please try again later!</string>
+
+    <string name="title_offline">You are offline!</string>
+    <string name="message_offline">You are offline, please connect to an active Internet connection and try again!</string>
+
+    <string name="title_error">Error!</string>
+    <string name="message_generic_error">Something went wrong, Please try again!</string>
+
+    <string name="action_retry">Retry</string>
+
+    <string name="content_description_product_item_image">Product Item Image</string>
+    <string name="content_description_mercari_logo">Mercari logo</string>
+</resources>
