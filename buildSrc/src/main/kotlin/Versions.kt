@@ -43,8 +43,6 @@ internal const val VERSION_HILT_NAVIGATION_COMPOSE = "1.1.0-alpha01"
 
 internal const val VERSION_COROUTINES = "1.6.4"
 
-internal const val VERSION_DATA_STORE = "1.0.0"
-
 
 // Test
 

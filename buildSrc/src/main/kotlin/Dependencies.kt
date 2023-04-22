@@ -127,14 +127,6 @@ fun DependencyHandler.implementCoroutineAndroid() {
 }
 
 /**
- *   -- Data Store --
- */
-
-fun DependencyHandler.implementDataStorePreferences() {
-    implementation("androidx.datastore:datastore-preferences:$VERSION_DATA_STORE")
-}
-
-/**
  *   -- Network --
  */
 
