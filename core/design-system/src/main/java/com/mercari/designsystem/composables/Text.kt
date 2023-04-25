@@ -4,6 +4,7 @@ import androidx.annotation.IntRange
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.LocalTextStyle
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -20,8 +21,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import com.mercari.designsystem.theme.ColorBlackAlpha22
-import com.mercari.designsystem.theme.ColorFontBody
-import com.mercari.designsystem.theme.ColorFontTitle
 import com.mercari.designsystem.theme.ColorMercariYellow
 import com.mercari.designsystem.theme.ColorWhite
 import com.mercari.designsystem.theme.MercariTheme
@@ -29,7 +28,6 @@ import com.mercari.designsystem.theme.Padding2XDp
 import com.mercari.designsystem.theme.Padding3XDp
 import com.mercari.designsystem.theme.Padding4XDp
 import com.mercari.designsystem.theme.PaddingXDp
-import com.mercari.designsystem.theme.Typography
 
 const val MERCARI_TEXT_TITLE_MAX_LINE = 3
 
@@ -78,7 +76,7 @@ fun MercariBaseText(
 fun MercariTitleText(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = ColorFontTitle,
+    color: Color = LocalTextStyle.current.color,
     textAlign: TextAlign? = LocalTextStyle.current.textAlign,
     overflow: TextOverflow = TextOverflow.Ellipsis,
     softWrap: Boolean = true,
@@ -86,7 +84,7 @@ fun MercariTitleText(
     minLines: Int = 1,
     onTextLayout: (TextLayoutResult) -> Unit = {}
 ) {
-    val textStyle = Typography.h2
+    val textStyle = MaterialTheme.typography.h2
     Text(
         text = text,
         modifier = modifier,
@@ -112,7 +110,7 @@ fun MercariTitleText(
 fun MercariCaptionText(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = ColorFontBody,
+    color: Color = LocalTextStyle.current.color,
     textAlign: TextAlign? = LocalTextStyle.current.textAlign,
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
@@ -120,7 +118,7 @@ fun MercariCaptionText(
     minLines: Int = 1,
     onTextLayout: (TextLayoutResult) -> Unit = {}
 ) {
-    val textStyle = Typography.caption
+    val textStyle = MaterialTheme.typography.caption
     MercariCommonText(
         text = text,
         modifier = modifier,
@@ -139,7 +137,7 @@ fun MercariCaptionText(
 fun MercariBodyText(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = ColorFontBody,
+    color: Color = LocalTextStyle.current.color,
     textAlign: TextAlign? = LocalTextStyle.current.textAlign,
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
@@ -147,7 +145,7 @@ fun MercariBodyText(
     minLines: Int = 1,
     onTextLayout: (TextLayoutResult) -> Unit = {}
 ) {
-    val textStyle = Typography.body1
+    val textStyle = MaterialTheme.typography.body1
     MercariCommonText(
         text = text,
         modifier = modifier,
@@ -166,7 +164,7 @@ fun MercariBodyText(
 private fun MercariCommonText(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = ColorFontBody,
+    color: Color = LocalTextStyle.current.color,
     textAlign: TextAlign? = LocalTextStyle.current.textAlign,
     overflow: TextOverflow = TextOverflow.Clip,
     softWrap: Boolean = true,
@@ -270,7 +268,7 @@ private fun PreviewMercariBodyText() = MercariTheme {
 @Preview(showBackground = true)
 @Composable
 private fun PreviewMercariBaseText() = MercariTheme {
-    MercariCommonText(text = "MercariBaseText", textStyle = Typography.h5)
+    MercariCommonText(text = "MercariBaseText", textStyle = MaterialTheme.typography.h5)
 }
 
 @Preview(showBackground = true)

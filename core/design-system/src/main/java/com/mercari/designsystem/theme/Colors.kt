@@ -28,14 +28,20 @@ val ColorRed: Color
  *   Font Colors
  */
 
-val ColorFontBody: Color
+val ColorFontBodyLight: Color
+    get() = Color(0xFFEDEFF2)
+
+val ColorFontTitleLight: Color
+    get() = Color(0xFFFFFFFF)
+
+val ColorFontBodyDark: Color
     get() = Color(0xFF494A4A)
 
-val ColorFontTitle: Color
+val ColorFontTitleDark: Color
     get() = Color(0xFF1C1D1D)
 
 /**
- *   Mercari Colors
+ *   Theme Colors
  */
 
 val ColorMercariRed: Color
@@ -46,6 +52,12 @@ val ColorMercariBlue: Color
 
 val ColorMercariYellow: Color
     get() = Color(0xFFED8334)
+
+val ColorBackgroundDark: Color
+    get() = Color(0xFF1A1A1A)
+
+val ColorBackgroundLight: Color
+    get() = ColorWhite
 
 /**
  *   Other Colors

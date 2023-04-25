@@ -12,32 +12,32 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColors(
-    primary = ColorBlack,
+    primary = ColorBackgroundDark,
     primaryVariant = ColorBlack,
     secondary = ColorMercariBlue,
     secondaryVariant = ColorMercariYellow,
-    background = ColorBlack,
-    surface = ColorBlack,
+    background = ColorBackgroundDark,
+    surface = ColorBackgroundDark,
     error = ColorRed,
-    onPrimary = ColorWhite,
-    onSecondary = ColorWhite,
-    onBackground = ColorWhite,
-    onSurface = ColorWhite,
+    onPrimary = ColorFontTitleLight,
+    onSecondary = ColorFontBodyLight,
+    onBackground = ColorFontTitleLight,
+    onSurface = ColorFontTitleLight,
     onError = ColorRed
 )
 
 private val LightColorScheme = lightColors(
-    primary = ColorWhite,
+    primary = ColorBackgroundLight,
     primaryVariant = ColorWhite,
     secondary = ColorMercariBlue,
     secondaryVariant = ColorMercariYellow,
-    background = ColorWhite,
-    surface = ColorWhite,
+    background = ColorBackgroundLight,
+    surface = ColorBackgroundLight,
     error = ColorRed,
-    onPrimary = ColorBlack,
-    onSecondary = ColorBlack,
-    onBackground = ColorBlack,
-    onSurface = ColorBlack,
+    onPrimary = ColorFontTitleDark,
+    onSecondary = ColorFontBodyDark,
+    onBackground = ColorFontTitleDark,
+    onSurface = ColorFontTitleDark,
     onError = ColorRed
 )
 
@@ -47,6 +47,7 @@ fun MercariTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
+    val typography = if (darkTheme) TypographyDark else TypographyLight
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
@@ -62,7 +63,7 @@ fun MercariTheme(
 
     MaterialTheme(
         colors = colorScheme,
-        typography = Typography,
+        typography = typography,
         shapes = shapes,
         content = content
     )

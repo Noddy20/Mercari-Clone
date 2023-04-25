@@ -3,6 +3,7 @@ package com.mercari.designsystem.composables
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.AppBarDefaults
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.TabPosition
 import androidx.compose.material.Tab
 import androidx.compose.material.TabRow
@@ -16,7 +17,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.zIndex
 import com.mercari.resources.R
 import com.mercari.designsystem.theme.ColorInactive
-import com.mercari.designsystem.theme.ColorFontTitle
+import com.mercari.designsystem.theme.ColorFontTitleLight
+import com.mercari.designsystem.theme.ColorMercariRed
 import com.mercari.designsystem.theme.MercariTheme
 import com.mercari.designsystem.theme.OneDp
 
@@ -26,7 +28,7 @@ private fun tabIndicator(
     TabRowDefaults.Indicator(
         modifier = Modifier.tabIndicatorOffset(tabPositions[selectedTabPosition]),
         height = OneDp,
-        color = ColorInactive
+        color = ColorMercariRed
     )
 }
 
@@ -37,7 +39,7 @@ private fun tabText(
     MercariCaptionText(
         text = title,
         color = if (isSelectedTab) {
-            ColorFontTitle
+            MaterialTheme.colors.onPrimary
         } else {
             ColorInactive
         }
@@ -53,7 +55,7 @@ private fun tabIcon(
         painter = painterResource(id = icon),
         contentDescription = title,
         tint = if (isSelectedTab) {
-            ColorFontTitle
+            MaterialTheme.colors.onPrimary
         } else {
             ColorInactive
         }
