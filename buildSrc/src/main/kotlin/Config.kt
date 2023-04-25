@@ -11,8 +11,8 @@ object Config {
     const val COMPILE_SDK = 33
     const val TARGET_SDK = 33
 
-    val JAVA_KOTLIN_VERSION_CODE = 11//JavaVersion.VERSION_11
-    val JAVA_KOTLIN_VERSION = JavaVersion.VERSION_11
+    val JAVA_KOTLIN_VERSION_CODE = 17//JavaVersion.VERSION_17
+    val JAVA_KOTLIN_VERSION = JavaVersion.VERSION_17
 
     const val ANDROID_TEST_INSTRUMENTATION = "androidx.test.runner.AndroidJUnitRunner"
 

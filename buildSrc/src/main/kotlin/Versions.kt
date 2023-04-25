@@ -1,31 +1,31 @@
 
-internal const val VERSION_KOTLIN = "1.8.0"
+internal const val VERSION_KOTLIN = "1.8.10"
 
-internal const val VERSION_AGP = "7.4.2"
+internal const val VERSION_AGP = "8.0.0"
 
-const val VERSION_COMPOSE = "1.4.0"
+const val VERSION_COMPOSE = "1.4.2"
 
-internal const val VERSION_ACTIVITY_COMPOSE = "1.7.0"
+internal const val VERSION_ACTIVITY_COMPOSE = "1.7.1"
 
-internal const val VERSION_SPLASH_API = "1.0.0"
+internal const val VERSION_SPLASH_API = "1.0.1"
 
-internal const val VERSION_COMPOSEFOUNDATION = "1.4.1"
+internal const val VERSION_COMPOSEFOUNDATION = VERSION_COMPOSE
 
-internal const val VERSION_NAVIGATION_COMPOSE = "2.5.3"
+//internal const val VERSION_NAVIGATION_COMPOSE = "2.5.3"
 
-internal const val VERSION_COMPOSE_MATERIAL = "1.4.0"
+internal const val VERSION_COMPOSE_MATERIAL = VERSION_COMPOSE
 
 internal const val VERSION_CONSTRAINTLAYOUT_COMPOSE = "1.0.1"
 
 internal const val VERSION_LOTTIE_COMPOSE = "6.0.0"
 
-internal const val VERSION_CORE_KTX = "1.9.0"
+internal const val VERSION_CORE_KTX = "1.10.0"
 
 internal const val VERSION_LIFECYCLE = "2.6.1"
 
 internal const val VERSION_HILT = "2.45"
 
-internal const val VERSION_KOTLINX_SERIALIZATION_PLUGIN = "1.8.10"
+internal const val VERSION_KOTLINX_SERIALIZATION_PLUGIN = VERSION_KOTLIN
 
 internal const val VERSION_KOTLINX_SERIALIZATION = "1.5.0"
 

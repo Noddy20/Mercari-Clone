@@ -71,9 +71,9 @@ fun DependencyHandler.implementComposeFoundation() {
 }
 
 // Navigation Compose
-fun DependencyHandler.implementNavigationCompose() {
+/*fun DependencyHandler.implementNavigationCompose() {
     implementation("androidx.navigation:navigation-compose:$VERSION_NAVIGATION_COMPOSE")
-}
+}*/
 
 // Compose Material
 fun DependencyHandler.implementComposeMaterial() {

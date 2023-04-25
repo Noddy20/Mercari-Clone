@@ -24,6 +24,10 @@ android {
         )
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = Config.IS_MINIFY_ENABLED_FOR_RELEASE
