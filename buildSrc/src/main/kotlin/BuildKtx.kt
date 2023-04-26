@@ -8,39 +8,39 @@ import org.gradle.kotlin.dsl.project
  *  Util functions for adding the different type dependencies from build.gradle.kts file
  */
 
-fun DependencyHandler.implementation(dependency: String) {
+internal fun DependencyHandler.implementation(dependency: String) {
     add("implementation", dependency)
 }
 
-fun DependencyHandler.debugImplementation(dependency: String) {
+internal fun DependencyHandler.debugImplementation(dependency: String) {
     add("debugImplementation", dependency)
 }
 
-fun DependencyHandler.kapt(dependency: String) {
+internal fun DependencyHandler.kapt(dependency: String) {
     add("kapt", dependency)
 }
 
-fun DependencyHandler.api(dependency: String) {
+internal fun DependencyHandler.api(dependency: String) {
     add("api", dependency)
 }
 
-fun DependencyHandler.implementationModule(module: String) {
+internal fun DependencyHandler.implementationModule(module: String) {
     add("implementation", project(module))
 }
 
-fun DependencyHandler.apiModule(module: String) {
+internal fun DependencyHandler.apiModule(module: String) {
     add("api", project(module))
 }
 
-fun DependencyHandler.implementationPlatform(dependency: String) {
+internal fun DependencyHandler.implementationPlatform(dependency: String) {
     add("implementation", platform(dependency))
 }
 
-fun DependencyHandler.androidTestImplementation(dependency: String) {
+internal fun DependencyHandler.androidTestImplementation(dependency: String) {
     add("androidTestImplementation", dependency)
 }
 
-fun DependencyHandler.testImplementation(dependency: String) {
+internal fun DependencyHandler.testImplementation(dependency: String) {
     add("testImplementation", dependency)
 }
 
