@@ -184,10 +184,24 @@ fun DependencyHandler.debugImplementComposeUiTestManifest() {
  *   Test Dependencies
  */
 
-// JUnit
-fun DependencyHandler.testImplementJUnit() {
+// JUnit5
+
+fun DependencyHandler.testImplementJunit() {
     testImplementation("junit:junit:$VERSION_J_UNIT")
 }
+
+fun DependencyHandler.testImplementTestCore() {
+    testImplementation("androidx.test:core:$VERSION_TEST_CORE")
+}
+
+fun DependencyHandler.testImplementMockitoCore() {
+    testImplementation("org.mockito:mockito-core:$VERSION_MOCKITO")
+}
+
+fun DependencyHandler.testImplementMockitoKotlin() {
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$VERSION_MOCKITO_KOTLIN")
+}
+
 
 /**
  *   Android Test Dependencies

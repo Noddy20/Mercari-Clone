@@ -48,6 +48,12 @@ internal const val VERSION_COROUTINES = "1.6.4"
 
 internal const val VERSION_J_UNIT = "4.13.2"
 
+internal const val VERSION_TEST_CORE = "1.5.0"
+
+internal const val VERSION_MOCKITO = "5.3.1"
+
+internal const val VERSION_MOCKITO_KOTLIN = "4.1.0"
+
 internal const val VERSION_EXT_J_UNIT = "1.1.5"
 
 internal const val VERSION_ESPRESSO_CORE = "3.5.1"

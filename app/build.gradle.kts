@@ -98,8 +98,6 @@ dependencies {
     implementModuleCoreUtilsMultithreadingImplementation()
     implementModuleCoreNetworkClientImplementation()
 
-    testImplementJUnit()
-
     androidTestImplementExtJUnit()
     androidTestImplementEspressoCore()
     androidTestImplementComposeUiTestJUnit4()
