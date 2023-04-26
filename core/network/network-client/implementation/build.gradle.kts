@@ -74,4 +74,9 @@ dependencies {
     implementModuleCoreUtilsMultithreadingApi()
     implementModuleCoreUtilsDependencyInjection()
     implementModuleCoreNetworkClientApi()
+
+    testImplementJunit()
+    testImplementTestCore()
+    testImplementMockitoCore()
+    testImplementMockitoKotlin()
 }

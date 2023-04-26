@@ -18,22 +18,38 @@ internal class NetworkClientFactoryImpl @Inject constructor(
     baseUrl: String
 ) : NetworkClientFactory {
 
-    private val okHttpClient: OkHttpClient = OkHttpClient.Builder().apply {
-        if (BuildConfig.DEBUG) {
-            addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        }
-        connectTimeout(60, TimeUnit.SECONDS)
-        readTimeout(60, TimeUnit.SECONDS)
-        writeTimeout(15, TimeUnit.SECONDS)
-    }.build()
+    @VisibleForTesting
+    lateinit var okHttpClient: OkHttpClient
+
+    @VisibleForTesting
+    fun initOkHttpClient() {
+        okHttpClient = OkHttpClient.Builder().apply {
+            if (BuildConfig.DEBUG) {
+                addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            }
+            connectTimeout(60, TimeUnit.SECONDS)
+            readTimeout(60, TimeUnit.SECONDS)
+            writeTimeout(15, TimeUnit.SECONDS)
+        }.build()
+    }
+
+    @VisibleForTesting
+    lateinit var retrofit: Retrofit
 
     @OptIn(ExperimentalSerializationApi::class)
     @VisibleForTesting
-    val retrofit: Retrofit = Retrofit.Builder()
-        .client(okHttpClient)
-        .baseUrl(baseUrl)
-        .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
-        .build()
+    fun initRetrofit(baseUrl: String) {
+        retrofit = Retrofit.Builder()
+            .client(okHttpClient)
+            .baseUrl(baseUrl)
+            .addConverterFactory(Json.asConverterFactory("application/json".toMediaType()))
+            .build()
+    }
+
+    init {
+        initOkHttpClient()
+        initRetrofit(baseUrl = baseUrl)
+    }
 
     override fun <T> create(clientService: Class<T>): T {
         return retrofit.create(clientService)
