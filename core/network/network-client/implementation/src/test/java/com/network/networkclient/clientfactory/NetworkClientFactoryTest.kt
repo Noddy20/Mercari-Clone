@@ -8,7 +8,6 @@ import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import retrofit2.Retrofit
 
-
 class NetworkClientFactoryTest {
 
     private val networkClientFactoryImpl = NetworkClientFactoryImpl(BuildConfig.BASE_URL)

@@ -2,11 +2,10 @@ plugins {
     pluginAndroidLibrary()
     pluginAndroidKotlin()
     pluginKotlinKapt()
-    pluginModuleHiltAndroid()
 }
 
 android {
-    namespace = "com.mercari.data.productcatalogue"
+    namespace = "com.utils.testutils"
     compileSdk = Config.COMPILE_SDK
 
     defaultConfig {
@@ -41,27 +40,16 @@ android {
     kotlinOptions {
         jvmTarget = Config.JAVA_KOTLIN_VERSION_CODE.toString()
     }
-
-    testOptions {
-        unitTests {
-            isReturnDefaultValues = true
-        }
-    }
 }
 
 dependencies {
     implementCoreKtx()
 
-    implementHiltAndroid()
-    kaptHiltAndroidCompiler()
-
-    implementModuleCoreLogger()
-    implementModuleCoreKtx()
     implementModuleCoreUtilsMultithreadingApi()
-    implementModuleCoreUtilsDependencyInjection()
-    implementModuleCoreNetworkClientApi()
-
-    implementModuleDataProductCatalogueApi()
-
-    testImplementModuleTestUtils()
+    apiTestJunit()
+    apiTestCore()
+    apiTestMockitoCore()
+    apiTestMockitoKotlin()
+    apiTestArchCoreTesting()
+    apiTestCoroutinesTest()
 }

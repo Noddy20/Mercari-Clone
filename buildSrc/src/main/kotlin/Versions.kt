@@ -57,3 +57,5 @@ internal const val VERSION_MOCKITO_KOTLIN = "4.1.0"
 internal const val VERSION_EXT_J_UNIT = "1.1.5"
 
 internal const val VERSION_ESPRESSO_CORE = "3.5.1"
+
+internal const val VERSION_ARCH_CORE_TESTING = "2.2.0"

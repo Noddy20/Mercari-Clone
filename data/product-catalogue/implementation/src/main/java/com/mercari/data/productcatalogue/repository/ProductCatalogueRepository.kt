@@ -1,6 +1,5 @@
 package com.mercari.data.productcatalogue.repository
 
-import androidx.annotation.VisibleForTesting
 import com.logs.logger.Logger
 import com.mercari.data.productcatalogue.ProductCatalogueRepository
 import com.mercari.data.productcatalogue.service.ProductCatalogueService
@@ -10,6 +9,7 @@ import com.mercari.model.data.shared.result.ResponseResult
 import com.utils.di.providers.Provider
 import com.utils.multithreading.coroutines.DispatchersProvider
 import kotlinx.coroutines.async
+import kotlinx.coroutines.supervisorScope
 import kotlinx.coroutines.withContext
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -19,8 +19,7 @@ internal class ProductCatalogueRepositoryImpl @Inject constructor(
     private val productCatalogueServiceProvider: Provider<ProductCatalogueService>
 ) : ProductCatalogueRepository {
 
-    @VisibleForTesting
-    val productCatalogueService: ProductCatalogueService
+    private val productCatalogueService: ProductCatalogueService
         get() = productCatalogueServiceProvider.get()
 
     override suspend fun getManProductCatalogue()
@@ -36,28 +35,41 @@ internal class ProductCatalogueRepositoryImpl @Inject constructor(
     override suspend fun getAllProductCatalogue()
     : ResponseResult<List<ProductCatalogueItemResponse>> = withContext(dispatchersProvider.io) {
         runCatching {
-            val manCatalogueResponseTask = async {
-                productCatalogueService.getManCatalogue()
-            }
-            val womenCatalogueResponseTask = async {
-                productCatalogueService.getWomenCatalogue()
-            }
-            val manCatalogueResponse = manCatalogueResponseTask.await()
-            val womenCatalogueResponse = womenCatalogueResponseTask.await()
+            return@withContext supervisorScope {
 
-            val allCatalogue = arrayListOf<ProductCatalogueItemResponse>()
-            allCatalogue.addAll(manCatalogueResponse.orEmpty())
-            allCatalogue.addAll(womenCatalogueResponse.orEmpty())
+                val manCatalogueResponseTask = async {
+                    runCatching {
+                        return@async productCatalogueService.getManCatalogue()
+                    }.onFailure {
+                        if (it is UnknownHostException) throw it
+                    }
+                    return@async null
+                }
 
-            return@withContext when {
-                manCatalogueResponse == null && womenCatalogueResponse == null -> {
-                    ResponseResult.Failure(ErrorResponse.ServerError())
+                val womenCatalogueResponseTask = async {
+                    runCatching {
+                        return@async productCatalogueService.getWomenCatalogue()
+                    }.onFailure {
+                        if (it is UnknownHostException) throw it
+                    }
+                    return@async null
                 }
-                allCatalogue.isEmpty() -> {
-                    ResponseResult.Failure(ErrorResponse.NoDataFound)
-                }
-                else -> {
-                    ResponseResult.Success(allCatalogue)
+
+                val manCatalogueResponse = manCatalogueResponseTask.await()
+                val womenCatalogueResponse = womenCatalogueResponseTask.await()
+
+                val allCatalogue = manCatalogueResponse.orEmpty() + womenCatalogueResponse.orEmpty()
+
+                return@supervisorScope when {
+                    manCatalogueResponse == null && womenCatalogueResponse == null -> {
+                        ResponseResult.Failure(ErrorResponse.ServerError())
+                    }
+                    allCatalogue.isEmpty() -> {
+                        ResponseResult.Failure(ErrorResponse.NoDataFound)
+                    }
+                    else -> {
+                        ResponseResult.Success(allCatalogue)
+                    }
                 }
             }
         }.onFailure {

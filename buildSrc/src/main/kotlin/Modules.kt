@@ -148,3 +148,11 @@ fun DependencyHandler.implementModulePresentationHomeContainer() {
 fun DependencyHandler.implementModulePresentationHomeCatalogue() {
     implementationModule(":presentation:home-catalogue")
 }
+
+/**
+ *    Test Dependencies
+ */
+
+fun DependencyHandler.testImplementModuleTestUtils() {
+    testImplementationModule(":core:utils:test-utils")
+}

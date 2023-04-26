@@ -44,8 +44,8 @@ internal fun DependencyHandler.testImplementation(dependency: String) {
     add("testImplementation", dependency)
 }
 
-internal fun DependencyHandler.testRuntimeOnly(dependency: String) {
-    add("testRuntimeOnly", dependency)
+internal fun DependencyHandler.testImplementationModule(dependency: String) {
+    add("testImplementation", project(dependency))
 }
 
 

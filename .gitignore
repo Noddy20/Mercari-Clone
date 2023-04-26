@@ -25,6 +25,7 @@ local.properties
 /core/utils/image-loader/build/
 /core/utils/multithreading/api/build/
 /core/utils/multithreading/implementation/build/
+/core/utils/test-utils/implementation/build/
 /data/product-catalogue/api/build/
 /data/product-catalogue/implementation/build/
 /domain/product-catalogue/api/build/

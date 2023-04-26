@@ -75,8 +75,5 @@ dependencies {
     implementModuleCoreUtilsDependencyInjection()
     implementModuleCoreNetworkClientApi()
 
-    testImplementJunit()
-    testImplementTestCore()
-    testImplementMockitoCore()
-    testImplementMockitoKotlin()
+    testImplementModuleTestUtils()
 }
