@@ -15,4 +15,6 @@ dependencies {
     implementCoroutineCore()
     apiModuleModelDomainShared()
     apiModuleModelDataShared()
+
+    testImplementTestJunit()
 }

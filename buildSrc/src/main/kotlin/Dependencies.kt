@@ -186,6 +186,10 @@ fun DependencyHandler.debugImplementComposeUiTestManifest() {
 
 // JUnit5
 
+fun DependencyHandler.testImplementTestJunit() {
+    testImplementation("junit:junit:$VERSION_J_UNIT")
+}
+
 fun DependencyHandler.apiTestJunit() {
     api("junit:junit:$VERSION_J_UNIT")
 }
