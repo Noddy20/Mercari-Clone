@@ -34,8 +34,10 @@ fun HomeCatalogueComposable(
         viewModel.processIntent(intent)
     }
 
-    LaunchedEffect(key1 = Unit) {
-        fetchCatalogue()
+    LaunchedEffect(key1 = catalogueType) {
+        if (viewModel.state.value !is HomeCatalogueContract.State.CatalogueLoaded) {
+            fetchCatalogue()
+        }
     }
 
     HomeCatalogueComposableContent(state) {

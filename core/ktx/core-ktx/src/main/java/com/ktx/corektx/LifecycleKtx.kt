@@ -18,7 +18,3 @@ fun LifecycleOwner.launchIf(
         lifecycleScope.launch(context = coroutineContext, block = block)
     } else null
 }
-
-fun Lifecycle.onDestroyed() {
-
-}
