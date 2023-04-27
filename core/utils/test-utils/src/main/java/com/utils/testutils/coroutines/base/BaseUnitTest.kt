@@ -32,5 +32,11 @@ abstract class BaseUnitTest {
 
         whenever(dispatchersProvider.io)
             .thenReturn(mainCoroutineRule.testDispatcher)
+        whenever(dispatchersProvider.default)
+            .thenReturn(mainCoroutineRule.testDispatcher)
+        whenever(dispatchersProvider.unconfined)
+            .thenReturn(mainCoroutineRule.testDispatcher)
+        whenever(dispatchersProvider.main)
+            .thenReturn(mainCoroutineRule.testDispatcher)
     }
 }

@@ -41,6 +41,12 @@ android {
     kotlinOptions {
         jvmTarget = Config.JAVA_KOTLIN_VERSION_CODE.toString()
     }
+
+    testOptions {
+        unitTests {
+            isReturnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -57,4 +63,6 @@ dependencies {
     implementModuleDataProductCatalogueApi()
 
     apiModuleDomainSharedApi()
+
+    testImplementModuleTestUtils()
 }

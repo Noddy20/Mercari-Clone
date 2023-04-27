@@ -9,8 +9,6 @@ const val testNumLikes = 20
 const val testPhoto = "test_photo"
 const val testPrice = 50
 const val testStatusSold = "sold_out"
-const val testStatusOnSale = "on_sale"
-const val testStatusOnUnknown = "unknown"
 
 val productCatalogueResponse: ProductCatalogueItemResponse
     get() = ProductCatalogueItemResponse(

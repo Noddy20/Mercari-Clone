@@ -8,12 +8,14 @@ import com.utils.di.providers.Provider
 import com.utils.testutils.coroutines.base.BaseUnitTest
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.kotlin.doAnswer
 import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
+import org.mockito.kotlin.verifyNoMoreInteractions
 import org.mockito.kotlin.whenever
 import java.net.UnknownHostException
 
@@ -262,6 +264,8 @@ class ProductCatalogueRepositoryTest : BaseUnitTest() {
 
         val response = repository.getAllProductCatalogue()
 
+        verify(service).getManCatalogue()
+        verify(service).getWomenCatalogue()
         assert(response is ResponseResult.Failure)
         assert((response as ResponseResult.Failure).errorResponse is ErrorResponse.NoInternet)
     }
@@ -276,7 +280,14 @@ class ProductCatalogueRepositoryTest : BaseUnitTest() {
 
         val response = repository.getAllProductCatalogue()
 
+        verify(service).getManCatalogue()
+        verify(service).getWomenCatalogue()
         assert(response is ResponseResult.Success)
         assertEquals(expectedResponse, (response as ResponseResult.Success).data)
+    }
+
+    @After
+    fun tearDown() {
+        verifyNoMoreInteractions(service)
     }
 }

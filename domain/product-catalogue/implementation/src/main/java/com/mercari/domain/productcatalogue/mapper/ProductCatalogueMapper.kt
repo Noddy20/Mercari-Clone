@@ -1,17 +1,13 @@
 package com.mercari.domain.productcatalogue.mapper
 
+import androidx.annotation.VisibleForTesting
 import com.logs.logger.Logger
 import com.mercari.domain.shared.mapper.Mapper
 import com.mercari.model.data.productcatalogue.response.ProductCatalogueItemResponse
 import com.mercari.model.domain.productcatalogue.ProductCatalogueItem
 
-internal interface ProductCatalogueMapper
-    : Mapper<ProductCatalogueItemResponse, ProductCatalogueItem> {
-        fun getFormattedPrice(price: Int): String
-        fun getStatus(status: String): ProductCatalogueItem.Status
-}
-
-internal class ProductCatalogueMapperImpl : ProductCatalogueMapper {
+internal class ProductCatalogueMapperImpl :
+    Mapper<ProductCatalogueItemResponse, ProductCatalogueItem> {
 
     override fun mapTo(from: ProductCatalogueItemResponse): ProductCatalogueItem {
         return ProductCatalogueItem(
@@ -26,11 +22,13 @@ internal class ProductCatalogueMapperImpl : ProductCatalogueMapper {
         )
     }
 
-    override fun getFormattedPrice(price: Int): String {
+    @VisibleForTesting
+    fun getFormattedPrice(price: Int): String {
         return "$price ¥"
     }
 
-    override fun getStatus(status: String): ProductCatalogueItem.Status {
+    @VisibleForTesting
+    fun getStatus(status: String): ProductCatalogueItem.Status {
         return ProductCatalogueItem.Status.values().firstOrNull {
             it.value == status
         } ?: run {
