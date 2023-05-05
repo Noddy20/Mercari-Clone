@@ -56,4 +56,6 @@ dependencies {
     implementModuleModelPresentationShared()
     implementModulePresentationSharedApi()
     apiModuleDomainSharedApi()
+
+    testImplementModuleTestUtils()
 }

@@ -1,7 +1,9 @@
 package com.mercari.presentation.shared.di
 
+import com.mercari.model.domain.shared.error.FailureResult
+import com.mercari.model.presentation.shared.ErrorData
 import com.mercari.presentation.shared.transformations.ErrorDataTransformations
-import com.mercari.presentation.shared.transformations.ErrorDataTransformationsImpl
+import com.mercari.presentation.shared.transformations.Transformations
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +16,7 @@ internal object TransformationsModule {
 
     @Provides
     @ActivityRetainedScoped
-    fun providesErrorDataTransformations(): ErrorDataTransformations {
-        return ErrorDataTransformationsImpl()
+    fun providesErrorDataTransformations(): Transformations<FailureResult, ErrorData> {
+        return ErrorDataTransformations()
     }
 }

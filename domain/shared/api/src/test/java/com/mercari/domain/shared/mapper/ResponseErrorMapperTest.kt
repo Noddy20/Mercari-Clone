@@ -17,11 +17,11 @@ import org.junit.Test
 
 class ResponseErrorMapperTest {
 
-    private lateinit var mapper: ResponseErrorMapperImpl
+    private lateinit var mapper: ResponseErrorMapper
 
     @Before
     fun setup() {
-        mapper = ResponseErrorMapperImpl()
+        mapper = ResponseErrorMapper()
     }
 
     @Test

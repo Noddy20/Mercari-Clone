@@ -3,7 +3,7 @@ package com.mercari.domain.shared.mapper
 import com.mercari.model.data.shared.error.ErrorResponse
 import com.mercari.model.domain.shared.error.FailureResult
 
-class ResponseErrorMapperImpl : Mapper<ErrorResponse, FailureResult> {
+class ResponseErrorMapper : Mapper<ErrorResponse, FailureResult> {
 
     override fun mapTo(from: ErrorResponse): FailureResult {
         return when(from) {

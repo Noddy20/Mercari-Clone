@@ -15,11 +15,11 @@ import org.mockito.kotlin.whenever
 
 class ProductCatalogueMapperTest {
 
-    private lateinit var mapper: ProductCatalogueMapperImpl
+    private lateinit var mapper: ProductCatalogueMapper
 
     @Before
     fun setup() {
-        mapper = ProductCatalogueMapperImpl()
+        mapper = ProductCatalogueMapper()
     }
 
     @Test

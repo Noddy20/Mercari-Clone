@@ -10,7 +10,6 @@ import com.mercari.domain.productcatalogue.usecase.QUALIFIER_GET_MAN_PRODUCT_CAT
 import com.mercari.domain.productcatalogue.usecase.QUALIFIER_GET_WOMEN_PRODUCT_CATALOGUE_USE_CASE
 import com.mercari.model.domain.productcatalogue.ProductCatalogueItem
 import com.mercari.model.domain.shared.result.ResultData
-import com.mercari.presentation.shared.transformations.ErrorDataTransformations
 import com.utils.multithreading.coroutines.DispatchersProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
@@ -19,6 +18,9 @@ import javax.inject.Inject
 import javax.inject.Named
 import com.mercari.homecatalogue.viewmodel.HomeCatalogueContract.State
 import com.mercari.homecatalogue.viewmodel.HomeCatalogueContract.Intent
+import com.mercari.model.domain.shared.error.FailureResult
+import com.mercari.model.presentation.shared.ErrorData
+import com.mercari.presentation.shared.transformations.Transformations
 
 @HiltViewModel
 internal class HomeCatalogueViewModel @Inject constructor(
@@ -29,7 +31,7 @@ internal class HomeCatalogueViewModel @Inject constructor(
     private val getWomenProductCatalogueUseCase: GetProductCatalogueUseCase,
     @Named(QUALIFIER_GET_ALL_PRODUCT_CATALOGUE_USE_CASE)
     private val getAllProductCatalogueUseCase: GetProductCatalogueUseCase,
-    private val errorDataTransformations: ErrorDataTransformations
+    private val errorDataTransformations: Transformations<FailureResult, ErrorData>
 ) : ViewModel(), HomeCatalogueContract {
 
     private val _state = mutableStateFlow<State>(State.CatalogueLoading)

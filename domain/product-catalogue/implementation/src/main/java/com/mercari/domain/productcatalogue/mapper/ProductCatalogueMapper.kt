@@ -6,7 +6,7 @@ import com.mercari.domain.shared.mapper.Mapper
 import com.mercari.model.data.productcatalogue.response.ProductCatalogueItemResponse
 import com.mercari.model.domain.productcatalogue.ProductCatalogueItem
 
-internal class ProductCatalogueMapperImpl :
+internal class ProductCatalogueMapper :
     Mapper<ProductCatalogueItemResponse, ProductCatalogueItem> {
 
     override fun mapTo(from: ProductCatalogueItemResponse): ProductCatalogueItem {
