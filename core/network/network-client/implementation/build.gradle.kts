@@ -6,6 +6,10 @@ plugins {
     pluginKotlinKapt()
 }
 
+apply {
+    pluginModuleSpotless(project.rootDir.toString())
+}
+
 android {
     namespace = "com.network.networkclient"
     compileSdk = Config.COMPILE_SDK

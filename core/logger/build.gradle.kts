@@ -3,6 +3,10 @@ plugins {
     pluginAndroidKotlin()
 }
 
+apply {
+    pluginModuleSpotless(project.rootDir.toString())
+}
+
 android {
     namespace = "com.logs.logger"
     compileSdk = Config.COMPILE_SDK

@@ -3,6 +3,8 @@ internal const val VERSION_KOTLIN = "1.8.10"
 
 internal const val VERSION_AGP = "8.0.0"
 
+internal const val VERSION_SPOTLESS = "6.7.0"
+
 const val VERSION_COMPOSE = "1.4.2"
 
 internal const val VERSION_ACTIVITY_COMPOSE = "1.7.1"

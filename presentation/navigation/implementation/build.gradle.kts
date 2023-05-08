@@ -5,6 +5,10 @@ plugins {
     pluginModuleHiltAndroid()
 }
 
+apply {
+    pluginModuleSpotless(project.rootDir.toString())
+}
+
 android {
     namespace = "com.mercari.presentation.navigation"
     compileSdk = Config.COMPILE_SDK

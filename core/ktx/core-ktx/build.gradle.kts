@@ -3,6 +3,10 @@ plugins {
     pluginAndroidKotlin()
 }
 
+apply {
+    pluginModuleSpotless(project.rootDir.toString())
+}
+
 android {
     namespace = "com.ktx.corektx"
     compileSdk = Config.COMPILE_SDK

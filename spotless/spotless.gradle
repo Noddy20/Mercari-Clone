@@ -1,0 +1,31 @@
+apply plugin: "com.diffplug.spotless"
+
+spotless {
+    kotlin {
+        target "**/*.kt"
+        targetExclude "**/build/**/*.kt"
+        ktlint().setUseExperimental(true).editorConfigOverride(
+                [
+                        'indent_size': '4',
+                        'continuation_indent_size': '4',
+                        'ktlint_disabled_rules': 'filename'
+                ]
+        )
+        //licenseHeaderFile "$rootDir/spotless/copyright.kt"
+        trimTrailingWhitespace()
+        endWithNewline()
+        indentWithSpaces()
+        replaceRegex 'Remove empty lines before end of block', '\\n[\\n]+(\\s*})(?=\\n)', '\n$1'
+        replaceRegex 'Remove trailing empty comment lines.', '\n\\s*\\*(\n\\s*\\*/\n)', '$1'
+    }
+
+    format 'misc', {
+        // define the files to apply `misc` to
+        target '**/*.gradle', '**/*.md', '**/.gitignore'
+
+        // define the steps to apply to those files
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}

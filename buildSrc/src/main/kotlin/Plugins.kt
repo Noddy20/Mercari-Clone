@@ -1,3 +1,4 @@
+import org.gradle.api.plugins.ObjectConfigurationAction
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.version
 import org.gradle.plugin.use.PluginDependenciesSpec
@@ -24,6 +25,14 @@ fun PluginDependenciesSpec.pluginKotlinJVM(apply: Boolean = true) {
 
 fun PluginDependenciesSpec.pluginAndroidKotlin(apply: Boolean = true) {
     id("org.jetbrains.kotlin.android") version (VERSION_KOTLIN) apply(apply)
+}
+
+fun PluginDependenciesSpec.pluginProjectSpotless() {
+    id("com.diffplug.spotless") version (VERSION_SPOTLESS) apply(false)
+}
+
+fun ObjectConfigurationAction.pluginModuleSpotless(root: String) {
+    from("$root/spotless/spotless.gradle")
 }
 
 fun PluginDependenciesSpec.pluginProjectHiltAndroid() {

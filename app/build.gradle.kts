@@ -7,6 +7,10 @@ plugins {
     pluginKotlinKapt()
 }
 
+apply {
+    pluginModuleSpotless(project.rootDir.toString())
+}
+
 android {
 
     /*signingConfigs {

@@ -10,4 +10,5 @@ plugins {
     pluginAndroidKotlin(apply = false)
     pluginProjectKotlinxSerialization()
     pluginProjectHiltAndroid()
+    pluginProjectSpotless()
 }

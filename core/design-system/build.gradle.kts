@@ -4,6 +4,10 @@ plugins {
     pluginKotlinKapt()
 }
 
+apply {
+    pluginModuleSpotless(project.rootDir.toString())
+}
+
 android {
     namespace = "com.mercari.designsystem"
     compileSdk = Config.COMPILE_SDK

@@ -4,6 +4,10 @@ plugins {
     pluginKotlinKapt()
 }
 
+apply {
+    pluginModuleSpotless(project.rootDir.toString())
+}
+
 android {
     namespace = "com.utils.testutils"
     compileSdk = Config.COMPILE_SDK
