@@ -20,7 +20,7 @@ import org.mockito.kotlin.whenever
 import java.net.UnknownHostException
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class ProductCatalogueRepositoryTest : BaseUnitTest() {
+class ProductCatalogueRepositoryImplTest : BaseUnitTest() {
 
     private lateinit var repository: ProductCatalogueRepository
     private lateinit var service: ProductCatalogueService
@@ -104,7 +104,6 @@ class ProductCatalogueRepositoryTest : BaseUnitTest() {
         assert(response is ResponseResult.Failure)
         assert((response as ResponseResult.Failure).errorResponse is ErrorResponse.ClientError)
     }
-
 
     /**
      *   Women Catalogue Fetch Tests

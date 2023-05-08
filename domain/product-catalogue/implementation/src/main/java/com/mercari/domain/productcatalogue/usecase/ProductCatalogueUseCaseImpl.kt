@@ -19,8 +19,8 @@ internal abstract class ProductCatalogueUseCaseImpl(
 
     suspend fun invoke(
         block: suspend () -> ResponseResult<List<ProductCatalogueItemResponse>>
-    ): ResultData<List<ProductCatalogueItem>>  = withContext(dispatchersProvider.default) {
-        return@withContext when(val response = block()) {
+    ): ResultData<List<ProductCatalogueItem>> = withContext(dispatchersProvider.default) {
+        return@withContext when (val response = block()) {
             is ResponseResult.Success -> {
                 try {
                     val resultData = response.data.map { mapper.mapTo(it) }

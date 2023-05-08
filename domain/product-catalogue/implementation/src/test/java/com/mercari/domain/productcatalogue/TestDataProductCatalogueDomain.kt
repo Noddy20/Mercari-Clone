@@ -54,7 +54,6 @@ val productCatalogueItemsList: List<ProductCatalogueItem>
         productCatalogueItem
     )
 
-
 val errorResponseNoDataFound = ErrorResponse.NoDataFound
 val errorResponseNoInternet = ErrorResponse.NoInternet
 val errorResponseServerError = ErrorResponse.ServerError()

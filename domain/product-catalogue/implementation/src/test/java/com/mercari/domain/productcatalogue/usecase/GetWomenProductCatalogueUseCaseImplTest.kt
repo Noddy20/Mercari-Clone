@@ -34,13 +34,13 @@ import org.mockito.kotlin.verifyNoMoreInteractions
 import org.mockito.kotlin.whenever
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class GetManProductCatalogueUseCaseTest : BaseUnitTest() {
+class GetWomenProductCatalogueUseCaseImplTest : BaseUnitTest() {
 
     private lateinit var repository: ProductCatalogueRepository
     private lateinit var mapper: Mapper<ProductCatalogueItemResponse, ProductCatalogueItem>
     private lateinit var errorMapper: Mapper<ErrorResponse, FailureResult>
 
-    private lateinit var useCase: GetManProductCatalogueUseCaseImpl
+    private lateinit var useCase: GetWomenProductCatalogueUseCaseImpl
 
     @Before
     override fun setup() {
@@ -49,7 +49,7 @@ class GetManProductCatalogueUseCaseTest : BaseUnitTest() {
         mapper = mock()
         errorMapper = mock()
 
-        useCase = GetManProductCatalogueUseCaseImpl(
+        useCase = GetWomenProductCatalogueUseCaseImpl(
             dispatchersProvider = dispatchersProvider,
             repository = repository,
             mapper = mapper,
@@ -58,25 +58,25 @@ class GetManProductCatalogueUseCaseTest : BaseUnitTest() {
     }
 
     @Test
-    fun `should return success result when man product catalogue response is success`() = runTest {
+    fun `should return success result when women product catalogue response is success`() = runTest {
         val productCatalogueResponse = ResponseResult.Success(data = productCatalogueResponseList)
         val productCatalogueItem = productCatalogueItem
         val expectedResult = ResultData.Success(data = productCatalogueItemsList)
 
-        whenever(repository.getManProductCatalogue())
+        whenever(repository.getWomenProductCatalogue())
             .thenReturn(productCatalogueResponse)
         whenever(mapper.mapTo(any()))
             .thenReturn(productCatalogueItem)
 
         val result = useCase.invoke()
 
-        verify(repository).getManProductCatalogue()
+        verify(repository).getWomenProductCatalogue()
         verify(mapper, times(productCatalogueResponse.data.size)).mapTo(any())
         assertEquals(expectedResult, result)
     }
 
     @Test
-    fun `should return no data found result when man product catalogue response is no data found`() = runTest {
+    fun `should return no data found result when women product catalogue response is no data found`() = runTest {
         val productCatalogueResponse = ResponseResult.Failure<List<ProductCatalogueItemResponse>>(
             errorResponse = errorResponseNoDataFound
         )
@@ -84,20 +84,20 @@ class GetManProductCatalogueUseCaseTest : BaseUnitTest() {
             failureResult = failureResultNoDataFound
         )
 
-        whenever(repository.getManProductCatalogue())
+        whenever(repository.getWomenProductCatalogue())
             .thenReturn(productCatalogueResponse)
         whenever(errorMapper.mapTo(any()))
             .thenReturn(failureResultNoDataFound)
 
         val result = useCase.invoke()
 
-        verify(repository).getManProductCatalogue()
+        verify(repository).getWomenProductCatalogue()
         verify(errorMapper).mapTo(any())
         assertEquals(expectedResult, result)
     }
 
     @Test
-    fun `should return no internet result when man product catalogue response is no internet`() = runTest {
+    fun `should return no internet result when women product catalogue response is no internet`() = runTest {
         val productCatalogueResponse = ResponseResult.Failure<List<ProductCatalogueItemResponse>>(
             errorResponse = errorResponseNoInternet
         )
@@ -105,20 +105,20 @@ class GetManProductCatalogueUseCaseTest : BaseUnitTest() {
             failureResult = failureResultNoInternet
         )
 
-        whenever(repository.getManProductCatalogue())
+        whenever(repository.getWomenProductCatalogue())
             .thenReturn(productCatalogueResponse)
         whenever(errorMapper.mapTo(any()))
             .thenReturn(failureResultNoInternet)
 
         val result = useCase.invoke()
 
-        verify(repository).getManProductCatalogue()
+        verify(repository).getWomenProductCatalogue()
         verify(errorMapper).mapTo(any())
         assertEquals(expectedResult, result)
     }
 
     @Test
-    fun `should return server error result when man product catalogue response is server error`() = runTest {
+    fun `should return server error result when women product catalogue response is server error`() = runTest {
         val productCatalogueResponse = ResponseResult.Failure<List<ProductCatalogueItemResponse>>(
             errorResponse = errorResponseServerError
         )
@@ -126,20 +126,20 @@ class GetManProductCatalogueUseCaseTest : BaseUnitTest() {
             failureResult = failureResultServerError
         )
 
-        whenever(repository.getManProductCatalogue())
+        whenever(repository.getWomenProductCatalogue())
             .thenReturn(productCatalogueResponse)
         whenever(errorMapper.mapTo(any()))
             .thenReturn(failureResultServerError)
 
         val result = useCase.invoke()
 
-        verify(repository).getManProductCatalogue()
+        verify(repository).getWomenProductCatalogue()
         verify(errorMapper).mapTo(any())
         assertEquals(expectedResult, result)
     }
 
     @Test
-    fun `should return client error result when man product catalogue response is client error`() = runTest {
+    fun `should return client error result when women product catalogue response is client error`() = runTest {
         val productCatalogueResponse = ResponseResult.Failure<List<ProductCatalogueItemResponse>>(
             errorResponse = errorResponseClientError
         )
@@ -147,14 +147,14 @@ class GetManProductCatalogueUseCaseTest : BaseUnitTest() {
             failureResult = failureResultClientError
         )
 
-        whenever(repository.getManProductCatalogue())
+        whenever(repository.getWomenProductCatalogue())
             .thenReturn(productCatalogueResponse)
         whenever(errorMapper.mapTo(any()))
             .thenReturn(failureResultClientError)
 
         val result = useCase.invoke()
 
-        verify(repository).getManProductCatalogue()
+        verify(repository).getWomenProductCatalogue()
         verify(errorMapper).mapTo(any())
         assertEquals(expectedResult, result)
     }

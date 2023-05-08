@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 const val VIEW_CLICK_THROTTLE_FIRST = 500L
 
-fun <T: Any> coroutineClicks(
+fun <T : Any> coroutineClicks(
     coroutineScope: CoroutineScope,
     throttle: Long = VIEW_CLICK_THROTTLE_FIRST,
     onClick: (T) -> Unit
@@ -19,7 +19,7 @@ fun <T: Any> coroutineClicks(
             onClick(it)
         }
     }
-    return fun(data: T){
+    return fun(data: T) {
         coroutineScope.launch {
             flow.emit(data)
         }
@@ -37,7 +37,7 @@ fun coroutineClick(
             onClick()
         }
     }
-    return fun(){
+    return fun() {
         coroutineScope.launch {
             flow.emit(Unit)
         }

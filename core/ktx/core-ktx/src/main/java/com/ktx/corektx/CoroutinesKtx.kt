@@ -55,7 +55,6 @@ fun LifecycleCoroutineScope.delayOnLifecycle(
     }
 }
 
-
 val processLifecycleOwner: LifecycleOwner = ProcessLifecycleOwner.get()
 
 val processLifecycleScope: LifecycleCoroutineScope = processLifecycleOwner.lifecycleScope
@@ -72,7 +71,7 @@ fun launchOnProcessLifecycle(
 fun <T> Flow<T>.collectOnProcessLifecycle(
     coroutineContext: CoroutineContext = EmptyCoroutineContext,
     block: suspend (T) -> Unit
-){
+) {
     launchOnProcessLifecycle(coroutineContext) {
         collect {
             block(it)

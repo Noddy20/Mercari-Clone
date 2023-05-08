@@ -12,12 +12,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.mercari.resources.R
-import com.mercari.designsystem.theme.ColorWhite
 import com.mercari.designsystem.theme.MercariTheme
+import com.mercari.designsystem.theme.PaddingXDp
 import com.mercari.designsystem.theme.Size48Dp
 import com.mercari.designsystem.theme.ZeroDp
-import com.mercari.designsystem.theme.PaddingXDp
+import com.mercari.resources.R
 
 @Composable
 fun MercariTopAppBar(

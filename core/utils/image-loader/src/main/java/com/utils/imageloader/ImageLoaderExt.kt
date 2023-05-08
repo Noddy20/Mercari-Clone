@@ -1,7 +1,6 @@
 package com.utils.imageloader
 
 import android.graphics.drawable.Drawable
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -30,7 +29,7 @@ fun AsyncImage(
     contentScale: ContentScale = ContentScale.Fit,
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
-    filterQuality: FilterQuality = DefaultFilterQuality,
+    filterQuality: FilterQuality = DefaultFilterQuality
 ) {
     var placeHolderState by remember {
         mutableStateOf(false)
@@ -59,7 +58,7 @@ fun AsyncImage(
 }
 
 private fun ((ImageLoaderState) -> Unit).handleImageLoaderState(state: AsyncImagePainter.State) {
-    val imageLoaderState = when(state) {
+    val imageLoaderState = when (state) {
         AsyncImagePainter.State.Empty -> ImageLoaderState.Empty
         is AsyncImagePainter.State.Error -> {
             ImageLoaderState.Error(painter = state.painter, throwable = state.result.throwable)
@@ -85,13 +84,13 @@ sealed interface ImageLoaderState {
 
     /** The request is in-progress. */
     data class Loading(
-        override val painter: Painter?,
+        override val painter: Painter?
     ) : ImageLoaderState
 
     /** The request was successful. */
     data class Success(
         override val painter: Painter,
-        val drawable: Drawable?,
+        val drawable: Drawable?
     ) : ImageLoaderState
 
     /** The request failed due to throwable. */
@@ -100,4 +99,3 @@ sealed interface ImageLoaderState {
         val throwable: Throwable?
     ) : ImageLoaderState
 }
-

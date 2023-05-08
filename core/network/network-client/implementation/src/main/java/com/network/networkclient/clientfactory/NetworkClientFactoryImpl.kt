@@ -4,7 +4,6 @@ import androidx.annotation.VisibleForTesting
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.netowrk.networkclient.clientfactory.NetworkClientFactory
 import com.network.networkclient.BuildConfig
-import com.utils.di.providers.Provider
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType

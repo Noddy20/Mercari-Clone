@@ -12,47 +12,46 @@ object Logger {
     private const val MAX_TAG_LENGTH = 23
 
     @JvmStatic
-    fun d(message: String): Int{
-        return getLogSourceInfo().let {(tag, source)->
+    fun d(message: String): Int {
+        return getLogSourceInfo().let { (tag, source) ->
             Log.d(tag, "$source : $message")
         }
     }
 
     @JvmStatic
-    fun e(message: String, t: Throwable? = null): Int{
-        return getLogSourceInfo().let {(tag, source)->
+    fun e(message: String, t: Throwable? = null): Int {
+        return getLogSourceInfo().let { (tag, source) ->
             Log.e(tag, "$source : $message :", t)
         }
     }
 
     @JvmStatic
-    fun e(t: Throwable? = null): Int{
-        return getLogSourceInfo().let {(tag, source)->
+    fun e(t: Throwable? = null): Int {
+        return getLogSourceInfo().let { (tag, source) ->
             Log.e(tag, "$source : ", t)
         }
     }
 
     @JvmStatic
-    fun w(message: String, t: Throwable? = null): Int{
-        return getLogSourceInfo().let {(tag, source)->
+    fun w(message: String, t: Throwable? = null): Int {
+        return getLogSourceInfo().let { (tag, source) ->
             Log.w(tag, "$source : $message :", t)
         }
     }
 
     @JvmStatic
-    fun i(message: String, t: Throwable? = null): Int{
-        return getLogSourceInfo().let {(tag, source)->
+    fun i(message: String, t: Throwable? = null): Int {
+        return getLogSourceInfo().let { (tag, source) ->
             Log.i(tag, "$source : $message :", t)
         }
     }
 
     @JvmStatic
-    fun wtf(message: String, t: Throwable? = null): Int{
-        return getLogSourceInfo().let {(tag, source)->
+    fun wtf(message: String, t: Throwable? = null): Int {
+        return getLogSourceInfo().let { (tag, source) ->
             Log.wtf(tag, "$source : $message :", t)
         }
     }
-
 
     private fun getLogSourceInfo(): Pair<String, String> {
         val stackTrace = Throwable().stackTrace
@@ -66,5 +65,4 @@ object Logger {
 
         return Pair(tag, "(${stackTrace.fileName}:${stackTrace.lineNumber})")
     }
-
 }

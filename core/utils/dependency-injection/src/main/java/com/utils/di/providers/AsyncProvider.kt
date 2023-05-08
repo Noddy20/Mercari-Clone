@@ -10,7 +10,7 @@ class AsyncSingletonProvider<T> internal constructor(
     private val tag: String,
     dispatcher: CoroutineDispatcher,
     private val initializer: () -> T
-): Provider<T> {
+) : Provider<T> {
 
     @Volatile
     private var value: T? = null

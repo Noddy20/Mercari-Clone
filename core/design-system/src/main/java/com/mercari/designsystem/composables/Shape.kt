@@ -50,25 +50,29 @@ val PriceTagShape: RoundedCornerShape
 @Preview(showBackground = false)
 @Composable
 private fun PreviewSoldRibbonShape() = MercariTheme {
-    Box(modifier = Modifier
-        .width(Size18Dp)
-        .height(Size18Dp)
-        .graphicsLayer {
-            shape = SoldRibbonShape
-            clip = true
-        }
-        .background(color = ColorMercariYellow))
+    Box(
+        modifier = Modifier
+            .width(Size18Dp)
+            .height(Size18Dp)
+            .graphicsLayer {
+                shape = SoldRibbonShape
+                clip = true
+            }
+            .background(color = ColorMercariYellow)
+    )
 }
 
 @Preview(showBackground = false)
 @Composable
 private fun PreviewPriceTagShape() = MercariTheme {
-    Box(modifier = Modifier
-        .width(Size18Dp)
-        .height(Size18Dp)
-        .graphicsLayer {
-            shape = PriceTagShape
-            clip = true
-        }
-        .background(color = ColorMercariYellow))
+    Box(
+        modifier = Modifier
+            .width(Size18Dp)
+            .height(Size18Dp)
+            .graphicsLayer {
+                shape = PriceTagShape
+                clip = true
+            }
+            .background(color = ColorMercariYellow)
+    )
 }

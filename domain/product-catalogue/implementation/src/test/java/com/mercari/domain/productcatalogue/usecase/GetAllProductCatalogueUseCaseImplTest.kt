@@ -34,7 +34,7 @@ import org.mockito.kotlin.verifyNoMoreInteractions
 import org.mockito.kotlin.whenever
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class GetAllProductCatalogueUseCaseTest : BaseUnitTest() {
+class GetAllProductCatalogueUseCaseImplTest : BaseUnitTest() {
 
     private lateinit var repository: ProductCatalogueRepository
     private lateinit var mapper: Mapper<ProductCatalogueItemResponse, ProductCatalogueItem>

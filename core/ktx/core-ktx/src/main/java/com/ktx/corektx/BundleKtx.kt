@@ -5,7 +5,7 @@ import android.os.Parcelable
 import androidx.core.os.bundleOf
 import java.io.Serializable
 
-fun <V: Any?> Map<String, V>.toBundle(): Bundle {
+fun <V : Any?> Map<String, V>.toBundle(): Bundle {
     val bundle = bundleOf()
     forEach { (key, value) ->
         bundle.put(key, value)

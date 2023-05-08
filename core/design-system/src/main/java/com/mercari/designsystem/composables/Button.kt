@@ -64,7 +64,7 @@ fun MercariMediumButton(
     modifierText: Modifier = Modifier,
     clickThrottle: Long = VIEW_CLICK_THROTTLE_FIRST,
     enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     MercariBaseButton(
         modifier = modifier
@@ -87,7 +87,7 @@ fun MercariSmallButton(
     modifierText: Modifier = Modifier,
     clickThrottle: Long = VIEW_CLICK_THROTTLE_FIRST,
     enabled: Boolean = true,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
     MercariBaseButton(
         modifier = modifier

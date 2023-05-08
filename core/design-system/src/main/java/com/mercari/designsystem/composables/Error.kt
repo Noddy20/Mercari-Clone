@@ -53,7 +53,7 @@ fun MercariError(
                 .width(ERROR_LOTTIE_SIZE)
                 .height(ERROR_LOTTIE_SIZE),
             composition = composition,
-            progress = { progress },
+            progress = { progress }
         )
 
         MercariTitleText(
@@ -89,7 +89,7 @@ private fun PreviewMercariError() = MercariTheme {
         "Error",
         "Something went wrong, try again! Something went wrong, try again! Something went wrong, try again!",
         true
-    ){
-        //Retry
+    ) {
+        // Retry
     }
 }

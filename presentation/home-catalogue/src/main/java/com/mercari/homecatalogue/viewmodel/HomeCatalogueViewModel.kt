@@ -8,19 +8,19 @@ import com.mercari.domain.productcatalogue.usecase.GetProductCatalogueUseCase
 import com.mercari.domain.productcatalogue.usecase.QUALIFIER_GET_ALL_PRODUCT_CATALOGUE_USE_CASE
 import com.mercari.domain.productcatalogue.usecase.QUALIFIER_GET_MAN_PRODUCT_CATALOGUE_USE_CASE
 import com.mercari.domain.productcatalogue.usecase.QUALIFIER_GET_WOMEN_PRODUCT_CATALOGUE_USE_CASE
+import com.mercari.homecatalogue.viewmodel.HomeCatalogueContract.Intent
+import com.mercari.homecatalogue.viewmodel.HomeCatalogueContract.State
 import com.mercari.model.domain.productcatalogue.ProductCatalogueItem
+import com.mercari.model.domain.shared.error.FailureResult
 import com.mercari.model.domain.shared.result.ResultData
+import com.mercari.model.presentation.shared.ErrorData
+import com.mercari.presentation.shared.transformations.Transformations
 import com.utils.multithreading.coroutines.DispatchersProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Named
-import com.mercari.homecatalogue.viewmodel.HomeCatalogueContract.State
-import com.mercari.homecatalogue.viewmodel.HomeCatalogueContract.Intent
-import com.mercari.model.domain.shared.error.FailureResult
-import com.mercari.model.presentation.shared.ErrorData
-import com.mercari.presentation.shared.transformations.Transformations
 
 @HiltViewModel
 internal class HomeCatalogueViewModel @Inject constructor(
@@ -40,7 +40,7 @@ internal class HomeCatalogueViewModel @Inject constructor(
 
     override fun processIntent(intent: Intent) {
         viewModelScope.launch(dispatchersProvider.default) {
-            val fetchBlock = when(intent) {
+            val fetchBlock = when (intent) {
                 Intent.LoadManCatalogue -> getManProductCatalogueUseCase::invoke
                 Intent.LoadWomenCatalogue -> getWomenProductCatalogueUseCase::invoke
                 Intent.LoadAllCatalogue -> getAllProductCatalogueUseCase::invoke
@@ -51,7 +51,7 @@ internal class HomeCatalogueViewModel @Inject constructor(
 
     @VisibleForTesting
     suspend fun fetchProductCatalogue(block: suspend () -> ResultData<List<ProductCatalogueItem>>) {
-        when(val result = block()) {
+        when (val result = block()) {
             is ResultData.Success -> {
                 _state.tryEmit(State.CatalogueLoaded(result.data))
             }

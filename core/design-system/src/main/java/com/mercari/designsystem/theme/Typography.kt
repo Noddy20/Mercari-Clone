@@ -1,8 +1,6 @@
 package com.mercari.designsystem.theme
 
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Typography
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import com.mercari.resources.R
@@ -26,7 +24,7 @@ val TypographyLight: Typography
                 body2 = body2.copy(fontSize = FontSizeH5Sp, color = ColorFontTitleDark),
                 button = button.copy(fontSize = FontSizeH6Sp, color = ColorFontTitleDark),
                 caption = caption.copy(fontSize = FontSizePSp, color = ColorFontTitleDark),
-                overline = overline.copy(fontSize = FontSizeH6Sp, color = ColorFontTitleDark),
+                overline = overline.copy(fontSize = FontSizeH6Sp, color = ColorFontTitleDark)
             )
         }
     }
@@ -50,7 +48,7 @@ val TypographyDark: Typography
                 body2 = body2.copy(fontSize = FontSizeH5Sp, color = ColorFontTitleLight),
                 button = button.copy(fontSize = FontSizeH6Sp, color = ColorFontTitleLight),
                 caption = caption.copy(fontSize = FontSizePSp, color = ColorFontTitleLight),
-                overline = overline.copy(fontSize = FontSizeH6Sp, color = ColorFontTitleLight),
+                overline = overline.copy(fontSize = FontSizeH6Sp, color = ColorFontTitleLight)
             )
         }
     }

@@ -8,15 +8,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import com.mercari.model.presentation.shared.HomeCatalogueType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mercari.designsystem.composables.MercariError
 import com.mercari.designsystem.theme.MercariTheme
-import com.mercari.homecatalogue.viewmodel.HomeCatalogueViewModel
 import com.mercari.homecatalogue.viewmodel.HomeCatalogueContract
+import com.mercari.homecatalogue.viewmodel.HomeCatalogueViewModel
 import com.mercari.model.domain.productcatalogue.ProductCatalogueItem
+import com.mercari.model.presentation.shared.HomeCatalogueType
 
 @Composable
 fun HomeCatalogueComposable(
@@ -26,7 +26,7 @@ fun HomeCatalogueComposable(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     fun fetchCatalogue() {
-        val intent = when(catalogueType) {
+        val intent = when (catalogueType) {
             HomeCatalogueType.ManCatalogue -> HomeCatalogueContract.Intent.LoadManCatalogue
             HomeCatalogueType.WomenCatalogue -> HomeCatalogueContract.Intent.LoadWomenCatalogue
             HomeCatalogueType.AllCatalogue -> HomeCatalogueContract.Intent.LoadAllCatalogue
@@ -52,7 +52,7 @@ private fun HomeCatalogueComposableContent(
 ) {
     val context = LocalContext.current
     Box(modifier = Modifier.fillMaxSize()) {
-        when(state) {
+        when (state) {
             HomeCatalogueContract.State.CatalogueLoading -> {
                 CatalogueLoadingComposable()
             }
@@ -76,12 +76,11 @@ private fun HomeCatalogueComposableContent(
     }
 }
 
-
 /**
  *   ----- Previews -----
  */
 
-//Default Preview composable in Theme design-system needed
+// Default Preview composable in Theme design-system needed
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

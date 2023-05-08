@@ -13,7 +13,6 @@ fun <T> mutableSharedFlow(
     onBufferOverflow: BufferOverflow = BufferOverflow.SUSPEND
 ) = MutableSharedFlow<T>(replay, extraBufferCapacity, onBufferOverflow)
 
-
 fun <T> Flow<T>.distinctUntilChanged(
     areEquivalent: (old: T, new: T) -> Boolean = { old, new ->
         old == new

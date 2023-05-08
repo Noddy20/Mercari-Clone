@@ -19,7 +19,7 @@ internal class SplashRouterActivity : ComponentActivity() {
     lateinit var appActivityNavigator: AppActivityNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             val splashScreen = installSplashScreen()
             splashScreen.setKeepOnScreenCondition { true }
         }

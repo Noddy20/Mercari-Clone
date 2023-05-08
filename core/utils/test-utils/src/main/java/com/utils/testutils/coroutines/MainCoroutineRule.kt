@@ -23,5 +23,4 @@ class MainCoroutineRule(
         super.finished(description)
         Dispatchers.resetMain()
     }
-
 }

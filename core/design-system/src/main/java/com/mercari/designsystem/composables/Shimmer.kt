@@ -12,12 +12,12 @@ import com.mercari.designsystem.theme.ColorShimmer
 import com.mercari.designsystem.theme.ColorTransparent
 
 @Composable
-fun MercariShimmerBrush(showShimmer: Boolean = true, targetValue:Float = 1000f): Brush {
+fun MercariShimmerBrush(showShimmer: Boolean = true, targetValue: Float = 1000f): Brush {
     return if (showShimmer) {
         val shimmerColors = listOf(
             ColorShimmer.copy(alpha = 0.6f),
             ColorShimmer.copy(alpha = 0.2f),
-            ColorShimmer.copy(alpha = 0.6f),
+            ColorShimmer.copy(alpha = 0.6f)
         )
 
         val transition = rememberInfiniteTransition()
@@ -25,7 +25,8 @@ fun MercariShimmerBrush(showShimmer: Boolean = true, targetValue:Float = 1000f):
             initialValue = 0f,
             targetValue = targetValue,
             animationSpec = infiniteRepeatable(
-                animation = tween(800), repeatMode = RepeatMode.Reverse
+                animation = tween(800),
+                repeatMode = RepeatMode.Reverse
             )
         )
         Brush.linearGradient(

@@ -31,4 +31,3 @@ val FontSizeH6Sp: TextUnit
 
 val FontSizePSp: TextUnit
     get() = 12.sp
-

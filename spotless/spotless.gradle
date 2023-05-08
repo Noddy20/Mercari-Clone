@@ -4,13 +4,14 @@ spotless {
     kotlin {
         target "**/*.kt"
         targetExclude "**/build/**/*.kt"
-        ktlint().setUseExperimental(true).editorConfigOverride(
-                [
-                        'indent_size': '4',
-                        'continuation_indent_size': '4',
-                        'ktlint_disabled_rules': 'filename'
-                ]
-        )
+        ktlint()
+                .setUseExperimental(true)
+                .editorConfigOverride(
+                        [
+                                'indent_size': '4',
+                                'continuation_indent_size': '4'
+                        ]
+                )
         //licenseHeaderFile "$rootDir/spotless/copyright.kt"
         trimTrailingWhitespace()
         endWithNewline()

@@ -25,8 +25,8 @@ import com.mercari.designsystem.composables.MercariTopAppBar
 import com.mercari.designsystem.composables.TabItem
 import com.mercari.designsystem.theme.MercariTheme
 import com.mercari.homecatalogue.view.composables.HomeCatalogueComposable
-import com.mercari.resources.R
 import com.mercari.model.presentation.shared.HomeCatalogueType
+import com.mercari.resources.R
 import kotlinx.coroutines.launch
 
 @Composable
@@ -78,7 +78,7 @@ internal fun HomeContainerContent(
             pageCount = tabItems.size,
             state = pagerState
         ) { currentPage ->
-            val catalogueType = when(currentPage) {
+            val catalogueType = when (currentPage) {
                 0 -> HomeCatalogueType.ManCatalogue
                 1 -> HomeCatalogueType.WomenCatalogue
                 else -> HomeCatalogueType.AllCatalogue
@@ -94,7 +94,6 @@ private val tabItems: List<TabItem>
         TabItem("Women", R.drawable.ic_women_dress),
         TabItem("All", R.drawable.ic_all)
     )
-
 
 /**
  *   ----- Previews -----

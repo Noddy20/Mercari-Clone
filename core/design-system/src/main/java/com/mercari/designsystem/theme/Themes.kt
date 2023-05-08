@@ -54,8 +54,10 @@ fun MercariTheme(
             (view.context as Activity).window.apply {
                 statusBarColor = colorScheme.secondary.toArgb()
                 WindowCompat.getInsetsController(
-                    /* window = */ this,
-                    /* view = */ view
+                    /* window = */
+                    this,
+                    /* view = */
+                    view
                 ).isAppearanceLightStatusBars = darkTheme
             }
         }

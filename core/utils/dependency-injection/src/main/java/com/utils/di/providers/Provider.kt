@@ -4,4 +4,3 @@ interface Provider<T> {
     fun get(): T
     fun destroy() {}
 }
-

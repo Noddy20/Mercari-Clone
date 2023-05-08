@@ -11,10 +11,9 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.mercari.designsystem.theme.MercariTheme
-import com.mercari.designsystem.theme.Size18Dp
 import com.mercari.designsystem.theme.Size24Dp
-import com.mercari.resources.R
 import com.mercari.designsystem.theme.Size48Dp
+import com.mercari.resources.R
 
 @Composable
 fun MercariBaseIcon(

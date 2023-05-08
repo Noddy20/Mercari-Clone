@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.mercari.designsystem.composables.MercariBaseCard
 import com.mercari.designsystem.composables.MercariShimmerBrush
 import com.mercari.designsystem.theme.Padding2XDp
@@ -38,11 +37,11 @@ fun CatalogueLoadingComposable() {
                     modifier = Modifier
                         .fillMaxSize()
                         .background(
-                        brush = MercariShimmerBrush(
-                            targetValue = 1300f,
-                            showShimmer = true
+                            brush = MercariShimmerBrush(
+                                targetValue = 1300f,
+                                showShimmer = true
+                            )
                         )
-                    )
                 )
             }
         }

@@ -4,8 +4,8 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.AppBarDefaults
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.TabPosition
 import androidx.compose.material.Tab
+import androidx.compose.material.TabPosition
 import androidx.compose.material.TabRow
 import androidx.compose.material.TabRowDefaults
 import androidx.compose.material.TabRowDefaults.tabIndicatorOffset
@@ -15,12 +15,11 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.zIndex
-import com.mercari.resources.R
 import com.mercari.designsystem.theme.ColorInactive
-import com.mercari.designsystem.theme.ColorFontTitleLight
 import com.mercari.designsystem.theme.ColorMercariRed
 import com.mercari.designsystem.theme.MercariTheme
 import com.mercari.designsystem.theme.OneDp
+import com.mercari.resources.R
 
 private fun tabIndicator(
     selectedTabPosition: Int

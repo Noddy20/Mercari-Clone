@@ -115,12 +115,14 @@ private fun PreviewCatalogueListComposable() = MercariTheme {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun PreviewCatalogueItemComposable() = MercariTheme {
-    CatalogueItemComposable(item = ProductCatalogueItem(
-        id = "random_id",
-        name = "Mercari Product",
-        price = 200,
-        priceFormatted = "200 ¥",
-        photoUrl = "https://dummyimage.com/400x400/000/fff?text=men45",
-        status = ProductCatalogueItem.Status.SOLD_OUT
-    ))
+    CatalogueItemComposable(
+        item = ProductCatalogueItem(
+            id = "random_id",
+            name = "Mercari Product",
+            price = 200,
+            priceFormatted = "200 ¥",
+            photoUrl = "https://dummyimage.com/400x400/000/fff?text=men45",
+            status = ProductCatalogueItem.Status.SOLD_OUT
+        )
+    )
 }

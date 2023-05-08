@@ -8,7 +8,7 @@ import com.mercari.resources.R
 internal class ErrorDataTransformations : Transformations<FailureResult, ErrorData> {
 
     override fun transformTo(from: FailureResult): ErrorData {
-        return when(from) {
+        return when (from) {
             is FailureResult.NoDataFound -> noDataFoundErrorData
             is FailureResult.NoInternet -> noInternetErrorData
             is FailureResult.ClientError -> clientErrorData
