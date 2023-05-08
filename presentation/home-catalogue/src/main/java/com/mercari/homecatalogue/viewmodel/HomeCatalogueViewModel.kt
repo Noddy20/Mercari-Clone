@@ -51,7 +51,6 @@ internal class HomeCatalogueViewModel @Inject constructor(
 
     @VisibleForTesting
     suspend fun fetchProductCatalogue(block: suspend () -> ResultData<List<ProductCatalogueItem>>) {
-        _state.tryEmit(State.CatalogueLoading)
         when(val result = block()) {
             is ResultData.Success -> {
                 _state.tryEmit(State.CatalogueLoaded(result.data))

@@ -80,4 +80,6 @@ dependencies {
     implementModulePresentationSharedApi()
 
     implementModuleDomainProductCatalogueApi()
+
+    testImplementModuleTestUtils()
 }
